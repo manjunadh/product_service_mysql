@@ -5,52 +5,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product")
+@Table(name = "products")
 public class Product {
-
 	@Id
 	private String id;
-
-	private String productName;
+	private String upc;
+	private String name;
 	private String description;
-	private int quantity;
-	private int price;
 
 	public Product() {
 
 	}
 
-	public Product(String id, String productName, String description, int quantity, int price) {
+	public Product(String id, String upc, String name, String description) {
 		super();
 		this.id = id;
-		this.productName = productName;
+		this.upc = upc;
+		this.name = name;
 		this.description = description;
-		this.quantity = quantity;
-		this.price = price;
-	}
-	
-
-	public Product(String id, String productName, String description) {
-		super();
-		this.id = id;
-		this.productName = productName;
-		this.description = description;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
 	}
 
 	public String getId() {
@@ -61,20 +33,28 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getUpc() {
+		return upc;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setUpc(String upc) {
+		this.upc = upc;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public String getName() {
+		return name;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
