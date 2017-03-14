@@ -17,14 +17,8 @@ import se.callista.microservices.core.product.model.Product;
 public class ProductService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
-
-	
-
 	@Autowired
 	private ProductRepository productRepository;
-
-
-
 
 	public List<Product> getAllProducts() {
 		LOGGER.info("fetching all products");
@@ -33,31 +27,17 @@ public class ProductService {
 		return products;
 	}
 
-
 	public Product getProduct(String id) {
 		LOGGER.info("fetching products for id" + id);
 		return productRepository.findOne(id);
 	}
 
-
-	public void addProduct(Product product) {
-		LOGGER.info("adding product to existing");
-		productRepository.save(product);
+	public List<Product> getProductByName(String name) {
+		return productRepository.findByName(name);
 	}
 
-
-	public void updateProduct(String id, Product product) {
-		LOGGER.info("updating product with id" + id);
-		productRepository.save(product);
+	public List<Product> getProductByDescription(String description) {
+		return productRepository.findByDescription(description);
 	}
-
-
-	public void deleteProduct(String id) {
-		LOGGER.info("deleting product with id"+id);
-		productRepository.delete(id);
-	}
-
-
-
 
 }
